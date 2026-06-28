@@ -1,106 +1,169 @@
-/* Navbar */
 .navbar {
-    background: linear-gradient(90deg, #4facfe, #00c6ff);
-    padding: 15px 40px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     position: sticky;
     top: 0;
     z-index: 1000;
-}
 
-/* Container */
-.contents {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    padding: 18px 8%;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, .08);
 }
 
-/* Logo */
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+/* ===========================
+   GLOBAL LINKS RESET
+=========================== */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===========================
+   LOGO
+=========================== */
+
+.logo{
+    margin: 0px 30px;
 }
 
 .logo img {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    object-fit: cover;
-    background: white;
-    padding: 4px;
+    height: 60px;
+    cursor: pointer;
+
+    opacity: 0;
+    transform: translateY(-15px);
+
+    animation: fadeInLogo 1s ease forwards;
+    animation-delay: 0.2s;
 }
 
-.logo h2 {
-    color: white;
-    font-size: 24px;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+@keyframes fadeInLogo {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Navigation Links */
-.links {
+/* ===========================
+   NAV LINKS
+=========================== */
+
+.navbar ul {
     display: flex;
+    gap: 35px;
+    list-style: none;
     align-items: center;
-    gap: 20px;
 }
 
-.links a {
-    text-decoration: none;
-    color: white;
-    font-size: 17px;
+.navbar ul a {
     font-weight: 500;
-    padding: 8px 15px;
-    border-radius: 6px;
-    transition: all 0.3s ease;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: .3s;
 }
 
-/* Hover Effect */
-.links a:hover {
-    background: rgba(255, 255, 255, 0.2);
+.navbar ul a:hover {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+/* ===========================
+   RIGHT BUTTON AREA
+=========================== */
+
+.navbar div:last-child {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+/* ===========================
+   LOGIN / REGISTER
+=========================== */
+
+.login-btn,
+.register-btn,
+.dashboard-btn,
+.logout-btn {
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: .3s;
+    border: none;
+    cursor: pointer;
+}
+
+/* LOGIN */
+.login-btn {
+    border: 2px solid #2563eb;
+    color: #2563eb;
+    background: transparent;
+}
+
+.login-btn:hover {
+    background: #2563eb;
+    color: white;
     transform: translateY(-2px);
 }
 
-/* Active Link */
-.links a.active {
-    background: white;
-    color: #00a8ff;
+/* REGISTER */
+.register-btn {
+    background: #2563eb;
+    color: white;
 }
 
-/* Register Button */
-.register {
-    background: white;
-    color: #00a8ff !important;
-    font-weight: bold;
+.register-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
 }
 
-.register:hover {
-    background: #f2f2f2;
+/* DASHBOARD */
+.dashboard-btn {
+    background: #22c55e;
+    color: white;
 }
 
-/* Logout Button */
-.logout {
-    background: #ff4d4d;
-    color: white !important;
+.dashboard-btn:hover {
+    background: #16a34a;
+    transform: translateY(-2px);
 }
 
-.logout:hover {
-    background: #e60000;
+/* LOGOUT */
+.logout-btn {
+    background: #ef4444;
+    color: white;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .contents {
+.logout-btn:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 900px) {
+
+    .navbar {
         flex-direction: column;
         gap: 15px;
+        padding: 15px;
     }
 
-    .links {
+    .navbar ul {
         flex-wrap: wrap;
         justify-content: center;
+        gap: 10px;
     }
 
-    .logo h2 {
-        font-size: 20px;
+    .navbar div:last-child {
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }
