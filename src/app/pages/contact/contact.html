@@ -1,5 +1,6 @@
-<div class="contact-page">
+<app-navbar></app-navbar>
 
+<div class="contact-page">
     <!-- Hero -->
     <div class="hero">
 
@@ -71,20 +72,20 @@
 
                     <label>Message</label>
 
-                    <textarea rows="6" name="message" formControlName="message" required>
+                    <textarea rows="6" name="message" formControlName="message" required style="resize: none;">
                     </textarea>
 
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
 
                     <label>Attachment (Optional)</label>
 
-                    <input type="file" (change)="onFileSelected($event)">
+                    <input type="file">
 
-                </div>
+                </div> -->
 
-                <button class="submit-btn" type="submit">
+                <button class="submit-btn" type="submit" [disabled]="!contactForm.valid">
 
                     Submit Request
 
@@ -162,3 +163,5 @@
     </div>
 
 </div>
+
+<app-footer></app-footer>
