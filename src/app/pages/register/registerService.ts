@@ -12,8 +12,8 @@ export class RegisterService {
 
     register(user: any) {
         this.http.post(`${this.url}/register`, user).subscribe({
-            next: (response) => {
-                console.log('User registered successfully:', response);
+            next: (res) => {
+                console.log('User registered successfully:', res);
             },
             error: (error) => {
                 console.log('Error registering user:', error);
