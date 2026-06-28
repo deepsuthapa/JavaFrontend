@@ -1,1 +1,56 @@
-<p>login works!</p>
+<div class="login-container">
+  <div class="login-card">
+    <h2>🔐 Welcome Back</h2>
+    <p>Please sign in to continue</p>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+
+      <div class="input-group">
+        <label for="email">📧 Email</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="Enter your email"
+        />
+      </div>
+
+      <div class="divider">
+        <span>Or</span>
+      </div>
+
+      <div class="input-group">
+        <label for="phone">📱 Phone</label>
+        <input
+          id="phone"
+          type="tel"
+          formControlName="phone"
+          placeholder="Enter your phone number"
+        />
+      </div>
+
+      <div class="input-group">
+        <label for="password">🔑 Password</label>
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          placeholder="Enter your password"
+        />
+      </div>
+
+      <button
+        type="submit"
+        [disabled]="!formIsValid()"
+      >
+        Login
+      </button>
+
+      <p class="signup">
+        Don't have an account?
+        <a routerLink="/register">Sign Up</a>
+      </p>
+
+    </form>
+  </div>
+</div>

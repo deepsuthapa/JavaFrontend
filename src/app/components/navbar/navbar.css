@@ -1,0 +1,106 @@
+/* Navbar */
+.navbar {
+    background: linear-gradient(90deg, #4facfe, #00c6ff);
+    padding: 15px 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Container */
+.contents {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: white;
+    padding: 4px;
+}
+
+.logo h2 {
+    color: white;
+    font-size: 24px;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Navigation Links */
+.links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.links a {
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Active Link */
+.links a.active {
+    background: white;
+    color: #00a8ff;
+}
+
+/* Register Button */
+.register {
+    background: white;
+    color: #00a8ff !important;
+    font-weight: bold;
+}
+
+.register:hover {
+    background: #f2f2f2;
+}
+
+/* Logout Button */
+.logout {
+    background: #ff4d4d;
+    color: white !important;
+}
+
+.logout:hover {
+    background: #e60000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contents {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .logo h2 {
+        font-size: 20px;
+    }
+}

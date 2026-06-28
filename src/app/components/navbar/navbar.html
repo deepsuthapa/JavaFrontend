@@ -1,1 +1,22 @@
-<p>navbar works!</p>
+<div class="navbar">
+    <div class="contents">
+
+        <div class="logo">
+            <img src="assets/logo.png" alt="Logo">
+        </div>
+
+        <div class="links">
+            <a routerLink="home" routerLinkActive="active">Home</a>
+            <a routerLink="about" routerLinkActive="active">About</a>
+            <a routerLink="contact" routerLinkActive="active">Contact</a>
+
+            @if(isLogin()){
+            <a routerLink="logout" routerLinkActive="active" class="logout">Logout</a>
+            } @else {
+            <a routerLink="login" routerLinkActive="active">Login</a>
+            <a routerLink="register" routerLinkActive="active" class="register">Register</a>
+            }
+        </div>
+
+    </div>
+</div>
