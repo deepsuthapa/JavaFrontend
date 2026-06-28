@@ -1,1 +1,267 @@
-<p>dashboard works!</p>
+<app-navbar></app-navbar>
+
+<div class="dashboard">
+
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div>
+            <h1>Student Dashboard</h1>
+            <p>Welcome back, {{student.name}} 👋</p>
+        </div>
+
+        <div class="header-actions">
+            <input type="text" placeholder="Search courses..." [(ngModel)]="searchText">
+
+            <button class="btn-primary">
+                + Enroll Course
+            </button>
+        </div>
+    </header>
+
+    <!-- Statistics -->
+    <section class="stats-grid">
+
+        <div class="card stat-card blue">
+            <div class="icon">
+                <i class="fa fa-book"></i>
+            </div>
+            <div>
+                <h2>{{stats.totalCourses}}</h2>
+                <span>Total Courses</span>
+            </div>
+        </div>
+
+        <div class="card stat-card green">
+            <div class="icon">
+                <i class="fa fa-check-circle"></i>
+            </div>
+            <div>
+                <h2>{{stats.completed}}</h2>
+                <span>Completed</span>
+            </div>
+        </div>
+
+        <div class="card stat-card orange">
+            <div class="icon">
+                <i class="fa fa-clock"></i>
+            </div>
+            <div>
+                <h2>{{stats.inProgress}}</h2>
+                <span>In Progress</span>
+            </div>
+        </div>
+
+        <div class="card stat-card purple">
+            <div class="icon">
+                <i class="fa fa-award"></i>
+            </div>
+            <div>
+                <h2>{{stats.certificates}}</h2>
+                <span>Certificates</span>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="dashboard-content">
+
+        <!-- Left Side -->
+        <div class="left-panel">
+
+            <!-- Student Profile -->
+            <div class="card profile-card">
+
+                <img [src]="student.avatar" alt="Student">
+
+                <h2>{{student.name}}</h2>
+
+                <p>{{student.email}}</p>
+
+                <div class="progress-box">
+                    <label>Overall Progress</label>
+
+                    <div class="progress-bar">
+                        <div class="progress-fill" [style.width.%]="student.progress">
+                        </div>
+                    </div>
+
+                    <strong>{{student.progress}}%</strong>
+                </div>
+
+            </div>
+
+            <!-- Upcoming Assignments -->
+            <div class="card">
+
+                <div class="section-title">
+                    Upcoming Assignments
+                </div>
+
+                <div *ngFor="let assignment of assignments" class="assignment-item">
+
+                    <div>
+                        <h4>{{assignment.title}}</h4>
+                        <small>{{assignment.course}}</small>
+                    </div>
+
+                    <span class="badge danger">
+                        {{assignment.dueDate}}
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="card">
+
+                <div class="section-title">
+                    Recent Activity
+                </div>
+
+                <div *ngFor="let activity of activities" class="activity">
+
+                    <div class="timeline-dot"></div>
+
+                    <div>
+
+                        <strong>{{activity.title}}</strong>
+
+                        <p>{{activity.description}}</p>
+
+                        <small>{{activity.time}}</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Right Side -->
+        <div class="right-panel">
+
+            <!-- My Courses -->
+            <div class="card">
+
+                <div class="section-header">
+
+                    <h2>My Courses</h2>
+
+                    <button class="btn-secondary">
+                        View All
+                    </button>
+
+                </div>
+
+                <div class="course-card" *ngFor="let course of courses">
+
+                    <div class="course-top">
+
+                        <div>
+
+                            <h3>{{course.title}}</h3>
+
+                            <small>{{course.instructor}}</small>
+
+                        </div>
+
+                        <span class="status" [ngClass]="course.status.toLowerCase()">
+
+                            {{course.status}}
+
+                        </span>
+
+                    </div>
+
+                    <div class="progress-bar">
+
+                        <div class="progress-fill" [style.width.%]="course.progress">
+                        </div>
+
+                    </div>
+
+                    <div class="course-footer">
+
+                        <span>{{course.progress}}% Completed</span>
+
+                        <button class="btn-primary">
+                            Continue
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Calendar -->
+            <div class="card">
+
+                <div class="section-header">
+
+                    <h2>Today's Schedule</h2>
+
+                </div>
+
+                <div class="schedule" *ngFor="let item of schedule">
+
+                    <div class="time">
+                        {{item.time}}
+                    </div>
+
+                    <div>
+
+                        <strong>{{item.subject}}</strong>
+
+                        <p>{{item.teacher}}</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="card">
+
+                <div class="section-header">
+                    <h2>Quick Actions</h2>
+                </div>
+
+                <div class="quick-actions">
+
+                    <button class="action-btn">
+                        📚 Browse Courses
+                    </button>
+
+                    <button class="action-btn">
+                        📝 Assignments
+                    </button>
+
+                    <button class="action-btn">
+                        📈 Progress Report
+                    </button>
+
+                    <button class="action-btn">
+                        🎓 Certificates
+                    </button>
+
+                    <button class="action-btn">
+                        💬 Discussion
+                    </button>
+
+                    <button class="action-btn">
+                        ⚙ Settings
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

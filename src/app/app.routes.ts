@@ -3,6 +3,8 @@ import { Home } from './pages/home/home';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { Login } from './pages/login/login';
 import { Register } from './pages/register/register';
+import { About } from './pages/about/about';
+import { Contact } from './pages/contact/contact';
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -10,4 +12,6 @@ export const routes: Routes = [
     { path: 'dashboard', component: Dashboard },
     { path: 'login', component: Login },
     { path: 'register', component: Register },
+    { path: 'about', component: About },
+    { path: 'contact', component: Contact },
 ];

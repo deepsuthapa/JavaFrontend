@@ -1,0 +1,164 @@
+<div class="contact-page">
+
+    <!-- Hero -->
+    <div class="hero">
+
+        <h1>Contact Us</h1>
+
+        <p>
+            Have a question, suggestion, or need assistance?
+            Our support team is here to help.
+        </p>
+
+    </div>
+
+    <div class="contact-container">
+
+        <!-- Contact Form -->
+        <div class="contact-card">
+
+            <h2>Send us a Message</h2>
+            <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" name="name" formControlName="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" formControlName="email" required>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="text" name="phone" formControlName="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Category</label>
+
+                        <select name="category" formControlName="category" required>
+
+                            <option>General Inquiry</option>
+                            <option>Technical Support</option>
+                            <option>Course Related</option>
+                            <option>Payment Issue</option>
+                            <option>Complaint</option>
+                            <option>Suggestion</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Subject</label>
+
+                    <input type="text" name="subject" formControlName="subject" required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Message</label>
+
+                    <textarea rows="6" name="message" formControlName="message" required>
+                    </textarea>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Attachment (Optional)</label>
+
+                    <input type="file" (change)="onFileSelected($event)">
+
+                </div>
+
+                <button class="submit-btn" type="submit">
+
+                    Submit Request
+
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- Right Panel -->
+        <div class="info-card">
+
+            <h2>Support Information</h2>
+
+            <div class="info">
+
+                <div class="icon">📧</div>
+
+                <div>
+                    <h4>Email</h4>
+                    <p>support@company.com</p>
+                </div>
+
+            </div>
+
+            <div class="info">
+
+                <div class="icon">📞</div>
+
+                <div>
+                    <h4>Phone</h4>
+                    <p>+91 98765 43210</p>
+                </div>
+
+            </div>
+
+            <div class="info">
+
+                <div class="icon">📍</div>
+
+                <div>
+                    <h4>Office</h4>
+                    <p>Pune, Maharashtra, India</p>
+                </div>
+
+            </div>
+
+            <div class="info">
+
+                <div class="icon">🕒</div>
+
+                <div>
+                    <h4>Support Hours</h4>
+                    <p>Monday - Saturday</p>
+                    <p>9:00 AM - 6:00 PM</p>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <h3>Why Contact Us?</h3>
+
+            <ul>
+                <li>Course Assistance</li>
+                <li>Technical Issues</li>
+                <li>Account Problems</li>
+                <li>Payment Queries</li>
+                <li>Feedback & Suggestions</li>
+                <li>Business Enquiries</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
