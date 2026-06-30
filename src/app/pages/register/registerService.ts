@@ -7,17 +7,10 @@ import { inject, Injectable } from "@angular/core";
 
 export class RegisterService {
 
-    url = 'http://localhost:8080';
+    url = 'http://192.168.1.233:8080'
     http = inject(HttpClient);
 
     register(user: any) {
-        this.http.post(`${this.url}/register`, user).subscribe({
-            next: (res) => {
-                console.log('User registered successfully:', res);
-            },
-            error: (error) => {
-                console.log('Error registering user:', error);
-            }
-        });
+        return this.http.post(`${this.url}/signup`, user);
     }
 }

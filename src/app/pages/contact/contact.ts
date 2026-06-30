@@ -21,7 +21,7 @@ export class Contact {
     name: ['', [Validators.required, Validators.minLength(3)]],
     email: ['', [Validators.required, Validators.email]],
     phone: ['', [Validators.pattern(/^\d{10}$/)]],
-    category: ['General Inquiry', [Validators.required]],
+    category: ['', [Validators.required]],
     subject: ['', [Validators.required, Validators.minLength(5)]],
     message: ['', [Validators.required, Validators.minLength(10)]],
     attachment: [null],
@@ -30,12 +30,12 @@ export class Contact {
   selectedFile: File | null = null;
 
   categories = [
-    'General Inquiry',
-    'Technical Support',
-    'Course Related',
-    'Payment Issue',
-    'Complaint',
-    'Suggestion'
+    'Option 1',
+    'Option 2',
+    'Option 3',
+    'Option 4',
+    'Option 5',
+    'Option 6'
   ];
   
   submitForm() {
@@ -55,7 +55,7 @@ export class Contact {
     }
 
     this.contactForm.reset({
-      category: 'General Inquiry'
+      category: ''
     });
 
     this.selectedFile = null;

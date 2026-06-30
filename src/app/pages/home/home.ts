@@ -8,4 +8,6 @@ import { Footer } from '../../components/footer/footer';
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
-export class Home {}
+export class Home {
+  logout() { }
+}

@@ -7,17 +7,10 @@ import { inject, Injectable } from '@angular/core';
 
 export class LoginService {
 
-    url = 'http://localhost:8080';
+    url = 'http://192.168.1.233:8080'
     http = inject(HttpClient);
 
-    login(user: any) {
-        this.http.post(`${this.url}/login`, user).subscribe({
-            next: (res) => {
-                console.log('User logged in successfully:', res);
-            },
-            error: (error) => {
-                console.log('Error logging in user:', error);
-            }
-        });
+    login(user: any): any {
+        return this.http.post(`${this.url}/login`, user, {withCredentials: true});
     }
 }

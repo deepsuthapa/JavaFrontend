@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, Injectable, signal } from '@angular/core';
 import { RouterLink } from "@angular/router";
+import { AuthService } from '../../service/auth-service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,6 +8,14 @@ import { RouterLink } from "@angular/router";
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
 })
+
 export class Navbar {
-  isLogin = signal(false);
+  isLogin = localStorage.getItem("userToken");
+  authService = inject(AuthService)
+  cdr = inject(ChangeDetectorRef)
+
+  logout(){
+    this.authService.logout()
+    this.cdr.detectChanges()
+  }
 }

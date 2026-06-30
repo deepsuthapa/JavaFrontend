@@ -20,14 +20,23 @@ export class Register {
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
     phone: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
-    age: [0, [Validators.min(18), Validators.max(120)]],
+    age: [NaN, [Validators.min(18), Validators.max(120)]],
     bio: ['']
   });
 
   onRegister() {
     try {
       let user: UserModel = this.registerForm.value as UserModel;
-      this.registerService.register(user);
+      console.log("user: ", user)
+
+      this.registerService.register(user).subscribe({
+            next: (res) => {
+                console.log('User registered successfully:', res);
+            },
+            error: (error) => {
+                console.log('Error registering user:', error);
+            }
+        });
 
     } catch (error) {
       console.log('Error during registration:', error);

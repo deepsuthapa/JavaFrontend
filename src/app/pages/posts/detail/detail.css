@@ -1,0 +1,37 @@
+.detail-page {
+  background: #f5f7fb;
+  min-height: 100vh;
+  padding: 40px;
+}
+
+.post-detail {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.author img {
+  width: 60px;
+  border-radius: 50%;
+}
+
+.post-detail img {
+  width: 100%;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.post-detail p {
+  line-height: 1.8;
+  color: #4b5563;
+}
