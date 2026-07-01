@@ -3,10 +3,11 @@ import { PostCard } from "../../../components/post-card/post-card";
 import { UserService } from '../../../service/user-service';
 import { PostCardModel } from '../../../models/PostCardModel';
 import { AuthService } from '../../../service/auth-service';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-my-posts',
-  imports: [PostCard],
+  imports: [PostCard, RouterLink],
   templateUrl: './my-posts.html',
   styleUrl: './my-posts.css',
 })

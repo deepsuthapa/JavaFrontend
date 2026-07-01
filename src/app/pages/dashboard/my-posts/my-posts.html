@@ -4,12 +4,14 @@
 
     <h1>My Posts</h1>
 
-    <button>New Post</button>
+    <a routerLink="/dashboard/create-post">
+      <button>New Post</button>
+    </a>
 
   </div>
 
   @for (post of myPosts; track post.id) {
-    <app-post-card [post]="post"></app-post-card>
+  <app-post-card [post]="post"></app-post-card>
   }
 
 </div>

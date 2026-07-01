@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { ApiService } from './api-service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FeedService {
 
-  url = 'http://192.168.1.233:8080'
+  api = inject(ApiService)
+  url = this.api.getApi()
   http = inject(HttpClient)
 
   getFeed() {

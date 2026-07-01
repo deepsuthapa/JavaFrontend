@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { PostCardModel } from '../../../models/PostCardModel';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from '../../../service/user-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-post',
@@ -13,6 +14,7 @@ export class CreatePost {
 
   fb = inject(FormBuilder)
   userService = inject(UserService)
+  router = inject(Router)
 
   newPostForm = this.fb.group({
     id: [''],
@@ -45,6 +47,7 @@ export class CreatePost {
     this.userService.addPost(newPostData).subscribe({
       next: (res: any) => {
         console.log("post added", res)
+        this.router.navigateByUrl('/dashboard')
       },
       error: (err: any) => {
         console.log("Error while creating post: ", err)

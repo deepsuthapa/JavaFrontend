@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
+import { ApiService } from "../../service/api-service";
 
 @Injectable({
     providedIn: 'root',
@@ -7,7 +8,8 @@ import { inject, Injectable } from "@angular/core";
 
 export class RegisterService {
 
-    url = 'http://192.168.1.233:8080'
+    api = inject(ApiService)
+    url = this.api.getApi()
     http = inject(HttpClient);
 
     register(user: any) {
