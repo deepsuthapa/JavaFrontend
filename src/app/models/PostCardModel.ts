@@ -1,12 +1,13 @@
 
 
 export interface PostCardModel {
-    id: string,
+    id?: string,
     author: string,
-    image: string,
+    url?: string,
+    image?: string,
     date: string,
     title: string,
-    content: string,
-    like: number,
-    comments: string[],
+    body: string,
+    like?: number,
+    comments?: string[],
 }

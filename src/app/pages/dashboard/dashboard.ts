@@ -1,7 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Navbar } from "../../components/navbar/navbar";
 import { Footer } from "../../components/footer/footer";
 import { RouterLink } from "@angular/router";
+import { AuthService } from '../../service/auth-service';
+import { CurrentUserModel } from '../../models/CurrentUser';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,4 +11,6 @@ import { RouterLink } from "@angular/router";
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })
-export class Dashboard {}
+export class Dashboard {
+  authService = inject(AuthService)
+}

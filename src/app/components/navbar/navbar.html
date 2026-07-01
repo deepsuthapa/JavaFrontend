@@ -2,7 +2,7 @@
 
     <div class="logo">
         <a routerLink="/home">
-            <img src="assets/logo.png" alt="Logo">
+            <img src="assets/blog64.png" alt="Logo">
         </a>
     </div>
 
@@ -10,15 +10,14 @@
 
         <li><a routerLink="/home">Home</a></li>
         <li><a routerLink="/feed">Feed</a></li>
-        <li><a routerLink="/about">About</a></li>
-        <li><a routerLink="/contact">Contact</a></li>
+        <li><a routerLink="/contact">Help</a></li>
 
     </ul>
 
     <div>
 
         @if(isLogin){
-        <a routerLink="/dashboard" class="dashboard-btn">Dashboard</a>
+        <a routerLink="/dashboard" class="dashboard-btn">Profile</a>
         <a routerLink="/login" class="logout-btn" (click)="logout()">Logout</a>
         } @else {
         <a routerLink="/login" class="login-btn">Login</a>

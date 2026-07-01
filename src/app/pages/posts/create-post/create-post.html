@@ -1,0 +1,82 @@
+<div class="create-post-container">
+
+    <div class="form-card">
+
+        <div class="header">
+            <h1>Create New Post</h1>
+            <p>Share your thoughts with the world.</p>
+        </div>
+
+        <form [formGroup]="newPostForm" (ngSubmit)="createPost()">
+
+            <div class="form-group">
+                <label>Author</label>
+                <input type="text" formControlName="author" placeholder="Enter author name">
+            </div>
+
+            <div class="form-group">
+
+                <label>Featured Image</label>
+
+                <input type="file" accept="image/*" (change)="onFileSelected($event)">
+
+            </div>
+
+            <div class="form-group">
+                <label>Image URL</label>
+                <input type="text" formControlName="url" placeholder="https://example.com/image.jpg">
+            </div>
+
+            <div class="form-group">
+                <label>Date</label>
+                <input type="date" formControlName="date">
+            </div>
+
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" formControlName="title" placeholder="Post title">
+
+                @if(newPostForm.get('title')?.invalid &&
+                newPostForm.get('title')?.touched){
+
+                <small class="error">
+                    Title is required
+                </small>
+
+                }
+            </div>
+
+            <div class="form-group">
+                <label>Content</label>
+
+                <textarea rows="10" formControlName="body" placeholder="Write your post here..."></textarea>
+
+                @if(newPostForm.get('content')?.invalid &&
+                newPostForm.get('content')?.touched){
+
+                <small class="error">
+                    Content is required
+                </small>
+
+                }
+            </div>
+
+            <div class="actions">
+
+                <button type="reset" class="cancel-btn">
+                    Cancel
+                </button>
+
+                <button type="submit" class="submit-btn" [disabled]="newPostForm.invalid">
+
+                    Publish Post
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

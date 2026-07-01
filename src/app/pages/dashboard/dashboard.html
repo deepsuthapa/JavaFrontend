@@ -32,7 +32,7 @@
         <img
           src="https://i.pravatar.cc/40"
           alt="Profile">
-        <span>Admin</span>
+        <span>{{authService.currentUser()?.name}}</span>
       </div>
     </header>
 
@@ -63,7 +63,9 @@
     <section class="table-section">
       <div class="table-header">
         <h2>Recent Posts</h2>
+        <a routerLink="create-post">
         <button>Add Post</button>
+        </a>
       </div>
 
       <table>

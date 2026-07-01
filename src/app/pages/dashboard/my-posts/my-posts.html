@@ -4,12 +4,12 @@
 
     <h1>My Posts</h1>
 
-    <button>Create Post</button>
+    <button>New Post</button>
 
   </div>
 
-  <app-post-card></app-post-card>
-
-  <app-post-card></app-post-card>
+  @for (post of myPosts; track post.id) {
+    <app-post-card [post]="post"></app-post-card>
+  }
 
 </div>

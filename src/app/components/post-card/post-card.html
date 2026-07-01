@@ -7,38 +7,37 @@
         alt="user">
 
       <div>
-        <h4>John Doe</h4>
-        <span>2 hours ago</span>
+        <h4>{{post.author}}</h4>
+        <span></span>
       </div>
     </div>
   </div>
 
   <h2 class="post-title">
-    Angular Signals Complete Guide
+    {{post.title}}
   </h2>
 
   <p class="post-content">
-    Learn how Angular Signals work and how they can improve
-    state management and application performance...
+    {{post.body}}
   </p>
 
   <img
     class="post-image"
-    src="https://picsum.photos/800/450"
+    src={{post.url}}
     alt="post">
 
   <div class="post-footer">
 
     <div class="stats">
-      ❤️ 120
+      ❤️ {{post.like}}
     </div>
 
     <div class="stats">
-      💬 34
+      💬 {{post.comments?.length}}
     </div>
 
     <button class="read-btn">
-      Read More
+      <a routerLink="">Read more</a>
     </button>
 
   </div>

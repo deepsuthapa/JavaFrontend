@@ -1,3 +1,7 @@
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 .navbar {
     position: sticky;
     top: 0;
@@ -124,12 +128,12 @@ a {
 
 /* DASHBOARD */
 .dashboard-btn {
-    background: #22c55e;
+    background: #2248c5;
     color: white;
 }
 
 .dashboard-btn:hover {
-    background: #16a34a;
+    background: #1637a3;
     transform: translateY(-2px);
 }
 

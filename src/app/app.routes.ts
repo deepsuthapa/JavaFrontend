@@ -8,6 +8,8 @@ import { Contact } from './pages/contact/contact';
 import { Feed } from './pages/posts/feed/feed';
 import { Detail } from './pages/posts/detail/detail';
 import { MyPosts } from './pages/dashboard/my-posts/my-posts';
+import { authGuard } from './guards/auth-guard';
+import { CreatePost } from './pages/posts/create-post/create-post';
 
 export const routes: Routes = [
     { path: '', component: Feed },
@@ -20,8 +22,15 @@ export const routes: Routes = [
     { path: 'login', component: Login },
     { path: 'register', component: Register },
 
-    { path: 'dashboard', component: Dashboard },
-    { path: 'dashboard/my-posts', component: MyPosts },
+    {
+        path: 'dashboard',
+        canActivate: [authGuard],
+        children: [
+            { path: '', component: Dashboard },
+            { path: 'my-posts', component: MyPosts },
+            { path: 'create-post', component: CreatePost },
+        ]
+    },
 
     { path: 'about', component: About },
     { path: 'contact', component: Contact },

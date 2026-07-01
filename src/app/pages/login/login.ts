@@ -2,7 +2,8 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginService } from './loginService';
 import { LoginModel } from '../../models/LoginModel';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { CurrentUserModel } from '../../models/CurrentUser';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ export class Login {
 
   fb = inject(FormBuilder);
   loginService = inject(LoginService);
+  router = inject(Router)
 
   loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -39,10 +41,18 @@ export class Login {
       this.loginService.login(user).subscribe({
         next: (res: any) => {
           if (res.name) {
-            cookieStore.set("name", "john")
-            localStorage.setItem("local", "localJohn")
+            let currentUser: CurrentUserModel = {
+              name: res.name || "",
+              email: res.email || user.email || "",
+              phone: res.phoneNo || user.phone || "",
+              age: res.age || NaN,
+              bio: res.bio || "",
+            }
 
-            localStorage.setItem("userToken", "token")
+            localStorage.setItem("userToken", JSON.stringify(currentUser))
+          }
+          if(localStorage.getItem('userToken')){
+            this.router.navigateByUrl('/dashboard')
           }
           console.log("User logged in successfully:", res);
         },

@@ -1,50 +1,88 @@
-<div class="register-container">
-    <div class="register-card">
-        <h2>📝 Create Account</h2>
-        <p>Join us by filling in your details</p>
+<div class="register-page">
 
-        <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    <!-- Left Side -->
+    <div class="blog-side">
 
-            <div class="input-group">
-                <label for="name">👤 Full Name</label>
-                <input id="name" type="text" formControlName="name" placeholder="Enter your full name">
-            </div>
+        <h1>The Daily Blog</h1>
 
-            <div class="input-group">
-                <label for="email">📧 Email</label>
-                <input id="email" type="email" formControlName="email" placeholder="Enter your email">
-            </div>
+        <p class="tagline">
+            Share your stories, inspire others, and become part of a growing community of writers.
+        </p>
 
-            <div class="input-group">
-                <label for="password">🔒 Password</label>
-                <input id="password" type="password" formControlName="password" placeholder="Create a password">
-            </div>
+        <div class="quote">
+            <h3>"Every writer was first a reader."</h3>
+            <p>Create your free account and start publishing today.</p>
+        </div>
 
-            <div class="input-group">
-                <label for="phone">📱 Phone Number</label>
-                <input id="phone" type="tel" formControlName="phone" placeholder="Enter phone number">
-            </div>
-
-            <div class="input-group">
-                <label for="age">🎂 Age</label>
-                <input id="age" type="number" formControlName="age" placeholder="Enter your age">
-            </div>
-
-            <div class="input-group">
-                <label for="bio">📝 Bio (optional)</label>
-                <textarea id="bio" rows="4" formControlName="bio"
-                    placeholder="Tell us something about yourself..."></textarea>
-            </div>
-
-            <button type="submit" [disabled]="registerForm.invalid">
-                Create Account
-            </button>
-
-            <p class="login-link">
-                Already have an account?
-                <a routerLink="/login">Login</a>
-            </p>
-
-        </form>
     </div>
+
+    <!-- Right Side -->
+    <div class="register-side">
+
+        <div class="register-card">
+
+            <h2>Create Account</h2>
+            <p>Join our blogging community.</p>
+
+            <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text"
+                        formControlName="name"
+                        placeholder="Enter your full name">
+                </div>
+
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email"
+                        formControlName="email"
+                        placeholder="Enter your email">
+                </div>
+
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password"
+                        formControlName="password"
+                        placeholder="Create password">
+                </div>
+
+                <div class="input-group">
+                    <label>Phone Number</label>
+                    <input type="tel"
+                        formControlName="phone"
+                        placeholder="Enter phone number">
+                </div>
+
+                <div class="input-group">
+                    <label>Age</label>
+                    <input type="number"
+                        formControlName="age"
+                        placeholder="Enter your age">
+                </div>
+
+                <div class="input-group">
+                    <label>Bio</label>
+                    <textarea rows="3"
+                        formControlName="bio"
+                        placeholder="Tell us something about yourself..."></textarea>
+                </div>
+
+                <button
+                    type="submit"
+                    [disabled]="registerForm.invalid">
+                    Create Account
+                </button>
+
+                <p class="login-link">
+                    Already have an account?
+                    <a routerLink="/login">Login</a>
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>
+
 </div>
